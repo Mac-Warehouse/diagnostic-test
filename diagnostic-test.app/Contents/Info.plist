@@ -24,6 +24,8 @@
 		<string>10.6</string>
 	</dict>
 	<key>LSRequiresCarbon</key>
+	<key>CFBundleShortVersionString</key>
+	<string>6.3.1</string>
 	<true/>
 </dict>
 </plist>
