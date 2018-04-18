@@ -438,7 +438,7 @@ end getModelYear
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 on switchGitBranch() -- prompts user for a branch to switch to
-	progressBar(0, 0, "Switch branch", "Loading‚Ä¶")
+	progressBar(0, 0, "Switch branch", "Loading…")
 	delay 1
 	set branchData to do shell script "cd " & POSIX path of folderPath & ";git branch -r" -- gets list of branches
 	set dataList to paragraphs of branchData -- separates each branch
@@ -454,7 +454,7 @@ on switchGitBranch() -- prompts user for a branch to switch to
 	set defaultItem to text item 1 of branchList
 	set AppleScript's text item delimiters to oldDelims -- resetting text item delims
 	----------
-	progressBar(0, 0, "", "Waiting for user input‚Ä¶")
+	progressBar(0, 0, "", "Waiting for user input…")
 	try -- prompts user to choose a branch
 		choose from list branchList with prompt "Currently running on " & gitBranch & " branch. Choose a branch to switch to." default items defaultItem with title mainAppName
 		set response to result
@@ -641,10 +641,10 @@ end getNeededOsVersion
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 on diagnostic() -- opens different apps to test computer hardware
-	progressBar(0, 0, "Processing", "Checking hardware‚Ä¶")
+	progressBar(0, 0, "Processing", "Checking hardware…")
 	delay 0.25 -- gives time for the above progress bar to be seen
 	notifyHardwareTests() -- displays notifications to remind about certain hardware tests
-	progressBar(0, 0, "Processing", "opening apps‚Ä¶")
+	progressBar(0, 0, "Processing", "opening apps…")
 	----------
 	try
 		tell application "System Preferences" -- opens input pane of sound preferences window to test microphone and speakers
@@ -693,9 +693,9 @@ end diagnostic
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 on stressTest()
-	progressBar(0, 0, "Stress test", "Loading‚Ä¶")
+	progressBar(0, 0, "Stress test", "Loading…")
 	delay 1 -- gives time for the above progress bar to be seen
-	progressBar(0, 0, "", "Waiting for user input‚Ä¶")
+	progressBar(0, 0, "", "Waiting for user input…")
 	tell application mainAppName to activate
 	try
 		choose from list {"Old stress test", "New stress test"} default items "Old stress test" with title mainAppName
@@ -705,9 +705,9 @@ on stressTest()
 		mainAppError("X005:MA")
 	end try
 	----------
-	progressBar(0, 0, "Stress test", "Loading‚Ä¶")
+	progressBar(0, 0, "Stress test", "Loading…")
 	delay 1 -- gives time for the above progress bar to be seen
-	progressBar(0, 0, "Stress test", "Opening stress test apps‚Ä¶")
+	progressBar(0, 0, "Stress test", "Opening stress test apps…")
 	quitApp("default apps")
 	----------
 	if response = {"New stress test"} then -- 
@@ -789,9 +789,9 @@ end stressTest
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 on installOS() -- the installOS method is pretty fragile and should only be edited if you understand all parts of what it is doing
-	progressBar(0, 0, "Install macOS", "Loading‚Ä¶")
+	progressBar(0, 0, "Install macOS", "Loading…")
 	delay 1 -- gives time for the above progress bar to be seen
-	progressBar(0, 0, "", "Waiting for user input‚Ä¶")
+	progressBar(0, 0, "", "Waiting for user input…")
 	getNeededOsVersion() -- returns High Sierra or El Capitan
 	set installOsVersion to result
 	----------
@@ -818,11 +818,11 @@ on installOS() -- the installOS method is pretty fragile and should only be edit
 		end if
 		
 	else if response = {"Next"} then
-		progressBar(0, 0, "Install macOS " & installOsVersion, "Loading‚Ä¶")
+		progressBar(0, 0, "Install macOS " & installOsVersion, "Loading…")
 		-- Installation Preperation begins here
 		
 		if installOsVersion = "El Capitan" then -- only mounts installESD.dmg if installing El Capitan. This step can take a little bit of time and could be moved to the beginning of the app but then you would have it mounting and not being used when installling El Capitan
-			progressBar(0, 0, "Install macOS " & installOsVersion, "Mounting El Capitan installESD.dmg file‚Ä¶")
+			progressBar(0, 0, "Install macOS " & installOsVersion, "Mounting El Capitan installESD.dmg file…")
 			delay 1 -- gives time for the above progress bar to be seen
 			
 			-- this part was written by Ezra, not sure what it does but it is definitely required
@@ -861,10 +861,10 @@ on installOS() -- the installOS method is pretty fragile and should only be edit
 		set timesToMultiply to 100 -- used to make progress bar look more realistic. multiplies total steps by this number (a higher number will make the progress bar move slower as each step delays a very small fraction of a second)
 		set progressStepsMultiplied to progressSteps * timesToMultiply
 		set a to 0
-		progressBar(progressStepsMultiplied, 0, "Install macOS " & installOsVersion, "Loading‚Ä¶")
+		progressBar(progressStepsMultiplied, 0, "Install macOS " & installOsVersion, "Loading…")
 		delay 1
 		
-		set progress additional description to "Unmounting disk0‚Ä¶"
+		set progress additional description to "Unmounting disk0…"
 		progressBarMultiplier(timesToMultiply / 5, a) -- repeats 25 times to make progress bar move smoothly and allows user to see progress
 		set a to result
 		try
@@ -873,7 +873,7 @@ on installOS() -- the installOS method is pretty fragile and should only be edit
 			end if
 		end try
 		
-		set progress additional description to "Unmounting disk1‚Ä¶"
+		set progress additional description to "Unmounting disk1…"
 		progressBarMultiplier(timesToMultiply / 5, a) -- repeats 25 times to make progress bar move smoothly and allows user to see progress
 		set a to result
 		try
@@ -882,7 +882,7 @@ on installOS() -- the installOS method is pretty fragile and should only be edit
 			end if
 		end try
 		
-		set progress additional description to "Unmounting disk2‚Ä¶"
+		set progress additional description to "Unmounting disk2…"
 		progressBarMultiplier(timesToMultiply / 5, a) -- repeats 25 times to make progress bar move smoothly and allows user to see progress
 		set a to result
 		try
@@ -891,7 +891,7 @@ on installOS() -- the installOS method is pretty fragile and should only be edit
 			end if
 		end try
 		
-		set progress additional description to "Unmounting disk3‚Ä¶"
+		set progress additional description to "Unmounting disk3…"
 		progressBarMultiplier(timesToMultiply / 5, a) -- repeats 25 times to make progress bar move smoothly and allows user to see progress
 		set a to result
 		try
@@ -900,7 +900,7 @@ on installOS() -- the installOS method is pretty fragile and should only be edit
 			end if
 		end try
 		
-		set progress additional description to "Unmounting disk4‚Ä¶"
+		set progress additional description to "Unmounting disk4…"
 		progressBarMultiplier(timesToMultiply / 5, a) -- repeats 25 times to make progress bar move smoothly and allows user to see progress
 		set a to result
 		try
@@ -909,7 +909,7 @@ on installOS() -- the installOS method is pretty fragile and should only be edit
 			end if
 		end try
 		
-		set progress additional description to "Erasing disk‚Ä¶"
+		set progress additional description to "Erasing disk…"
 		progressBarMultiplier(timesToMultiply / 5, a) -- repeats 25 times to make progress bar move smoothly and allows user to see progress
 		set a to result
 		try
@@ -917,7 +917,7 @@ on installOS() -- the installOS method is pretty fragile and should only be edit
 		end try
 		
 		if installOsVersion = "High Sierra" then
-			set progress additional description to "Preparing to install macOS‚Ä¶"
+			set progress additional description to "Preparing to install macOS…"
 			progressBarMultiplier(timesToMultiply, a)
 			set a to result
 			set diskLocation0 to missing value
@@ -925,11 +925,11 @@ on installOS() -- the installOS method is pretty fragile and should only be edit
 			set diskLocation2 to missing value
 			set diskLocation3 to missing value
 			set diskLocation4 to missing value
-			set progress additional description to "Rebooting‚Ä¶"
+			set progress additional description to "Rebooting…"
 			delay 3 -- allows the above progress bar to be seen
 			do shell script "shutdown -r now" -- restarts the computer. the first partition of the processing drive should be Install High Sierra and will default boot to that as the internal drive has been wiped at this point
 		else if installOsVersion = "El Capitan" then
-			set progress additional description to "Preparing to install macOS‚Ä¶"
+			set progress additional description to "Preparing to install macOS…"
 			progressBarMultiplier(timesToMultiply / 2, a)
 			set a to result
 			----------
@@ -939,7 +939,7 @@ on installOS() -- the installOS method is pretty fragile and should only be edit
 				do script "if [ -d '/Volumes/Macintosh HD 1' ]; then installer -allowUntrusted -verboseR -pkg /Volumes/OS\\ X\\ Install\\ ESD/Packages/OSInstall.mpkg -target /Volumes/Macintosh\\ HD\\ 1 && reboot; else installer -allowUntrusted -verboseR -pkg /Volumes/OS\\ X\\ Install\\ ESD/Packages/OSInstall.mpkg -target /Volumes/Macintosh\\ HD && reboot ; fi"
 			end tell
 			----------
-			set progress additional description to "instaling macOS‚Ä¶"
+			set progress additional description to "instaling macOS…"
 			progressBarMultiplier(timesToMultiply / 2, a)
 			set a to result
 			delay 3 -- allows the above progress bar to be seen
@@ -956,9 +956,9 @@ end installOS
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 on labelPrint()
-	progressBar(0, 0, "Label print", "Loading‚Ä¶")
+	progressBar(0, 0, "Label print", "Loading…")
 	delay 1 -- allows the above progress bar to be seen
-	progressBar(0, 0, "Label print", "Running label software‚Ä¶")
+	progressBar(0, 0, "Label print", "Running label software…")
 	----------
 	set homeFolder to POSIX path of (path to home folder) -- gets path to home directory
 	set theFile to "StoredCredential" -- the name of the file to be deleted
@@ -987,7 +987,7 @@ on labelPrint()
 		mainAppError("X008:MA")
 	end try
 	----------
-	progressBar(0, 0, "", "Closing‚Ä¶")
+	progressBar(0, 0, "", "Closing…")
 	quitApp("Google Chrome")
 	quitApp("Terminal")
 	----------
@@ -1060,7 +1060,7 @@ do shell script ("cd " & (POSIX path of (folderPath as alias)) & ";git stash") -
 
 quitApp("default apps") -- quits all apps before running this app
 identifyModel()
-progressBar(0, 0, "", "Waiting for user input‚Ä¶")
+progressBar(0, 0, "", "Waiting for user input…")
 
 if gitBranch is not equal to "master" then
 	set mainAppName to mainAppName & ": " & gitBranch & " branch"
