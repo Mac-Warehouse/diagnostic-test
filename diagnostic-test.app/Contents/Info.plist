@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>6.5.2</string>
+	<string>6.5.3</string>
 	<key>CFBundleSignature</key>
 	<string>aplt</string>
 	<key>LSMinimumSystemVersionByArchitecture</key>
@@ -34,7 +34,7 @@
 		<key>bundleDividerCollapsed</key>
 		<false/>
 		<key>bundlePositionOfDivider</key>
-		<real>719</real>
+		<real>1394</real>
 		<key>dividerCollapsed</key>
 		<false/>
 		<key>eventLogLevel</key>
@@ -42,9 +42,9 @@
 		<key>name</key>
 		<string>ScriptWindowState</string>
 		<key>positionOfDivider</key>
-		<real>498</real>
+		<real>1164</real>
 		<key>savedFrame</key>
-		<string>3 101 1018 676 0 0 1280 777 </string>
+		<string>50 76 1693 1342 0 0 2560 1418 </string>
 		<key>selectedTab</key>
 		<string>result</string>
 	</dict>
