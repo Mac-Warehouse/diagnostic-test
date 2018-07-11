@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <title>DYMO Label</title> 
+
+        <link rel="stylesheet" type="text/css" href="PreviewAndPrintLabel.css" />
+
+        <a href="../generated.label" id="generatedLabel"></a>
+
+        <script src = "http://code.jquery.com/jquery-1.4.2.min.js" type="text/javascript" charset="UTF-8"> </script>
+        <script src="http://www.labelwriter.com/software/dls/sdk/js/DYMO.Label.Framework.3.0.js" type="text/javascript" charset="UTF-8"></script>
+        <script src = "PreviewAndPrintLabel.js" type="text/javascript" charset="UTF-8"> </script>
+    
+    </head>
+
+    <body>
+
+<h1 type="text" id="messageText">Loading...</h1>
+
+<div class="content">
+
+    <div class="printControls">
+        <div id="printersDiv">
+            <label for="printersSelect">Printer:</label>
+            <select id="printersSelect"></select>
+
+        </div>
+
+        <div id="printDiv">
+            <button id="printButton">Reprint</button>
+
+        </div>
+    </div>
+
+    <div id="labelImageDiv">
+        <img id="labelImage" src="" alt="label preview"/>
+
+    </div>
+</div>
+</div>
+
+</body> 
+ 
+</html> 
