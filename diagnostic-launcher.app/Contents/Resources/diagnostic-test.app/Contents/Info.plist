@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>7.2.20</string>
+	<string>7.2.21</string>
 	<key>CFBundleSignature</key>
 	<string>aplt</string>
 	<key>LSMinimumSystemVersionByArchitecture</key>
@@ -44,9 +44,9 @@
 		<key>name</key>
 		<string>ScriptWindowState</string>
 		<key>positionOfDivider</key>
-		<real>519</real>
+		<real>520</real>
 		<key>savedFrame</key>
-		<string>51 254 1280 676 0 0 1680 1027 </string>
+		<string>20 150 1280 676 0 0 1440 878 </string>
 		<key>selectedTab</key>
 		<string>log</string>
 	</dict>
