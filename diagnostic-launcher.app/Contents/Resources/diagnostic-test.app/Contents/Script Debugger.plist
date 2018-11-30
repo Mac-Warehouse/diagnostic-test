@@ -159,7 +159,9 @@ WVtga3SDh4+Yqq2yAAAAAAAAAQEAAAAAAAAAGAAAAAAAAAAAAAAAAAAAALQ=</string>
 					</dict>
 				</dict>
 				<key>mainSplitPosition</key>
-				<real>0.0</real>
+				<real>434</real>
+				<key>modeIdentifier</key>
+				<string>tab.rsrcs</string>
 				<key>resourcesViewState</key>
 				<dict>
 					<key>heights2</key>
@@ -168,8 +170,8 @@ WVtga3SDh4+Yqq2yAAAAAAAAAQEAAAAAAAAAGAAAAAAAAAAAAAAAAAAAALQ=</string>
 						<dict>
 							<key>2</key>
 							<array>
-								<integer>252</integer>
-								<integer>612</integer>
+								<integer>377</integer>
+								<integer>916</integer>
 							</array>
 						</dict>
 					</dict>
@@ -191,7 +193,7 @@ WVtga3SDh4+Yqq2yAAAAAAAAAQEAAAAAAAAAGAAAAAAAAAAAAAAAAAAAALQ=</string>
 								<key>length</key>
 								<integer>0</integer>
 								<key>location</key>
-								<integer>73848</integer>
+								<integer>73599</integer>
 							</dict>
 						</array>
 						<key>LNSTextViewShowInvisibles</key>
@@ -203,7 +205,7 @@ WVtga3SDh4+Yqq2yAAAAAAAAAQEAAAAAAAAAGAAAAAAAAAAAAAAAAAAAALQ=</string>
 						<key>LNSTextViewWrapLines</key>
 						<false/>
 						<key>LNSVisibleRect</key>
-						<string>{{0, 46415}, {2514, 1221}}</string>
+						<string>{{0, 46415}, {2080, 1221}}</string>
 						<key>ShowLineNumbers</key>
 						<false/>
 						<key>showCodeCoverage</key>
@@ -228,7 +230,7 @@ WVtga3SDh4+Yqq2yAAAAAAAAAQEAAAAAAAAAGAAAAAAAAAAAAAAAAAAAALQ=</string>
 					<real>433</real>
 				</dict>
 				<key>tabsHidden</key>
-				<true/>
+				<false/>
 				<key>windowControllerID</key>
 				<string>BC887A7C-8F86-470E-B1B7-D2DC88EE3A50-25307-000415420C6EE882</string>
 				<key>windowFrame</key>
