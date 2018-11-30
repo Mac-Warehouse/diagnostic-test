@@ -68,7 +68,7 @@ WVtga3SDh4+Yqq2yAAAAAAAAAQEAAAAAAAAAGAAAAAAAAAAAAAAAAAAAALQ=</string>
 							<key>3</key>
 							<array>
 								<integer>455</integer>
-								<integer>578</integer>
+								<integer>579</integer>
 								<integer>228</integer>
 							</array>
 							<key>5</key>
@@ -88,7 +88,10 @@ WVtga3SDh4+Yqq2yAAAAAAAAAQEAAAAAAAAAGAAAAAAAAAAAAAAAAAAAALQ=</string>
 							<string>mode.best</string>
 						</array>
 						<key>positions2</key>
-						<dict/>
+						<dict>
+							<key>positions</key>
+							<dict/>
+						</dict>
 						<key>prettyPrint</key>
 						<false/>
 					</dict>
@@ -131,9 +134,9 @@ WVtga3SDh4+Yqq2yAAAAAAAAAQEAAAAAAAAAGAAAAAAAAAAAAAAAAAAAALQ=</string>
 						<dict>
 							<key>3</key>
 							<array>
-								<integer>319</integer>
-								<integer>291</integer>
-								<integer>288</integer>
+								<integer>320</integer>
+								<integer>292</integer>
+								<integer>289</integer>
 							</array>
 						</dict>
 					</dict>
@@ -193,7 +196,7 @@ WVtga3SDh4+Yqq2yAAAAAAAAAQEAAAAAAAAAGAAAAAAAAAAAAAAAAAAAALQ=</string>
 								<key>length</key>
 								<integer>0</integer>
 								<key>location</key>
-								<integer>73599</integer>
+								<integer>72683</integer>
 							</dict>
 						</array>
 						<key>LNSTextViewShowInvisibles</key>
@@ -205,7 +208,7 @@ WVtga3SDh4+Yqq2yAAAAAAAAAQEAAAAAAAAAGAAAAAAAAAAAAAAAAAAAALQ=</string>
 						<key>LNSTextViewWrapLines</key>
 						<false/>
 						<key>LNSVisibleRect</key>
-						<string>{{0, 46415}, {2080, 1221}}</string>
+						<string>{{0, 46157}, {2080, 1261}}</string>
 						<key>ShowLineNumbers</key>
 						<false/>
 						<key>showCodeCoverage</key>
@@ -234,7 +237,7 @@ WVtga3SDh4+Yqq2yAAAAAAAAAQEAAAAAAAAAGAAAAAAAAAAAAAAAAAAAALQ=</string>
 				<key>windowControllerID</key>
 				<string>BC887A7C-8F86-470E-B1B7-D2DC88EE3A50-25307-000415420C6EE882</string>
 				<key>windowFrame</key>
-				<string>0 53 2560 1364 0 0 2560 1417 </string>
+				<string>-1 53 2560 1364 0 0 2560 1417 </string>
 			</dict>
 		</dict>
 		<key>windowControllers</key>
@@ -249,7 +252,7 @@ WVtga3SDh4+Yqq2yAAAAAAAAAQEAAAAAAAAAGAAAAAAAAAAAAAAAAAAAALQ=</string>
 					<key>miniaturized</key>
 					<false/>
 					<key>windowFrame</key>
-					<string>0 53 2560 1364 0 0 2560 1417 </string>
+					<string>-1 53 2560 1364 0 0 2560 1417 </string>
 				</dict>
 			</dict>
 		</array>

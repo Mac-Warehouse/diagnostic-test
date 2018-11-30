@@ -11393,6 +11393,11 @@
 	\
 \pard\pardeftab480\slleading40\pardirnatural\partightenfactor0
 \cf3 	
+\f2\b \cf4 set
+\f1\b0 \cf3  \cf5 errorErase\cf3  
+\f2\b \cf4 to
+\f1\b0 \cf3  \cf14 false\cf3 \
+	
 \f2\b \cf4 repeat
 \f1\b0 \cf3  
 \f2\b \cf4 with
@@ -11434,6 +11439,11 @@
 \pard\pardeftab480\slleading40\pardirnatural\partightenfactor0
 \cf3 			\cf6 displayNotification\cf3 (\cf10 "Error erasing partition. Check Disk Utility"\cf3 , \cf5 e\cf3 )\
 			\cf6 openApp\cf3 (\cf10 "Disk Utility"\cf3 , \cf10 "Sec_App_Open:008"\cf3 , \cf14 false\cf3 )\
+			
+\f2\b \cf4 set
+\f1\b0 \cf3  \cf5 errorErase\cf3  
+\f2\b \cf4 to
+\f1\b0 \cf3  \cf14 true\cf3 \
 \pard\pardeftab480\slleading40\pardirnatural\partightenfactor0
 \cf3 			\
 		
@@ -11448,6 +11458,18 @@
 \f2\b \cf4 repeat
 \f1\b0 \cf3 \
 	\
+\pard\pardeftab480\slleading40\pardirnatural\partightenfactor0
+\cf3 	
+\f2\b \cf4 if
+\f1\b0 \cf3  \cf5 errorErase\cf3  
+\f2\b \cf4 is
+\f1\b0 \cf3  \cf14 true\cf3  
+\f2\b \cf4 then
+\f1\b0 \cf3  
+\f2\b \cf8 quit
+\f1\b0 \cf3 \
+\pard\pardeftab480\slleading40\pardirnatural\partightenfactor0
+\cf3 	\
 \pard\pardeftab480\slleading40\pardirnatural\partightenfactor0
 \cf3 	
 \f2\b \cf4 if
