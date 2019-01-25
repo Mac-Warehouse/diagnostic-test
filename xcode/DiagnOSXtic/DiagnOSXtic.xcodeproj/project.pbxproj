@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC198CA821F8DA3300120CBF /* ProductList in Resources */ = {isa = PBXBuildFile; fileRef = EC198CA721F8DA3300120CBF /* ProductList */; };
 		EC6B3F7521E7F8BC00C61396 /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6B3F7421E7F8BC00C61396 /* AppleScriptObjC.framework */; };
 		EC6B3F7821E7F8BC00C61396 /* AppDelegate.applescript in Sources */ = {isa = PBXBuildFile; fileRef = EC6B3F7721E7F8BC00C61396 /* AppDelegate.applescript */; };
 		EC6B3F7A21E7F8BD00C61396 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC6B3F7921E7F8BD00C61396 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC198CA721F8DA3300120CBF /* ProductList */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ProductList; sourceTree = "<group>"; };
 		EC6B3F7121E7F8BC00C61396 /* DiagnOSXtic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiagnOSXtic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6B3F7421E7F8BC00C61396 /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
 		EC6B3F7721E7F8BC00C61396 /* AppDelegate.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = AppDelegate.applescript; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				EC6B3F7B21E7F8BD00C61396 /* MainMenu.xib */,
 				EC6B3F7E21E7F8BD00C61396 /* Info.plist */,
 				EC6B3F7F21E7F8BD00C61396 /* main.m */,
+				EC198CA721F8DA3300120CBF /* ProductList */,
 			);
 			path = DiagnOSXtic;
 			sourceTree = "<group>";
@@ -131,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC6B3F7A21E7F8BD00C61396 /* Assets.xcassets in Resources */,
+				EC198CA821F8DA3300120CBF /* ProductList in Resources */,
 				EC6B3F7D21E7F8BD00C61396 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
