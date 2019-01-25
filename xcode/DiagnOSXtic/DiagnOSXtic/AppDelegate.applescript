@@ -31,6 +31,7 @@ script AppDelegate
     property tabButtonBox3 : missing value
     
     property initialLabel : missing value
+    property initialSubLabel : missing value
     property initialProgressIndicator : missing value
     
     property productListLabel : missing value
@@ -53,34 +54,54 @@ script AppDelegate
     --- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ ---
     
 	on applicationWillFinishLaunching_(aNotification)
-        activate me
+        activate current application
         tabButtonsSetup_()
-        initialProductListUpdate_()
+        initialize_()
         
 	end applicationWillFinishLaunching_
     
-    on initialProductListUpdate_()
+    on initialize_()
         set x to 0
-        initialLabel's setTitle_("Loading system information...")
-        repeat 100 times
+        initialSystemProfiler_()
+        initialProductListUpdate_()
+        
+    end initialize_
+    
+    on initialSystemProfiler_()
+        initialLabel's setTitle_("System Information")
+        initialSubLabel's setTitle_("Running system profilier...")
+        repeat 50 times
             set x to x + 1
             initialProgressIndicator's setDoubleValue_(x)
             delay 0.01
             
         end repeat
         
+        initialSubLabel's setTitle_("Downloading config code...")
+        repeat 10 times
+            set x to x + 1
+            initialProgressIndicator's setDoubleValue_(x)
+            delay 0.01
+            
+        end repeat
+        
+        initialSubLabel's setTitle_("Reading system info...")
+        repeat 40 times
+            set x to x + 1
+            initialProgressIndicator's setDoubleValue_(x)
+            delay 0.01
+            
+        end repeat
+    
+    end initialSystemProfiler_
+    
+    on initialProductListUpdate_()
+        initialLabel's setTitle_("Product List")
         updateProductList_("initial")
         
-        initialLabel's setTitle_("Checking hardware...")
-        repeat 100 times
-            set x to x + 1
-            initialProgressIndicator's setDoubleValue_(x)
-            delay 0.01
-            
-        end repeat
-        
+        initialLabel's setTitle_("")
         initialProgressIndicator's setHidden_(true)
-        --initialLabel's setHidden_(true)
+        initialSubLabel's setTitle_("")
         
     end initialProductListUpdate_
     
@@ -166,7 +187,7 @@ script AppDelegate
     
     on updateProductList_(sender)
         if sender is "initial" then
-            set labelToUpdate to initialLabel
+            set labelToUpdate to initialSubLabel
             set progressIndicatorToUpdate to initialProgressIndicator
         
         else

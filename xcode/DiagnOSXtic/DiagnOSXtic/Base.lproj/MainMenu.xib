@@ -15,8 +15,9 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="closeTabsButton" destination="KI3-gh-bdA" id="asb-Ei-eyJ"/>
-                <outlet property="initialLabel" destination="fKq-QY-0yL" id="nQp-zW-4gN"/>
+                <outlet property="initialLabel" destination="h2Z-vc-EXs" id="8Na-b7-3gt"/>
                 <outlet property="initialProgressIndicator" destination="Dfi-Ob-Uew" id="4Py-Po-j2b"/>
+                <outlet property="initialSubLabel" destination="fKq-QY-0yL" id="gd6-lZ-H7E"/>
                 <outlet property="productListButton" destination="0np-8P-q49" id="tir-Ga-3rZ"/>
                 <outlet property="productListLabel" destination="aYs-Am-6bx" id="ygg-jJ-JXc"/>
                 <outlet property="productListProgressIndicator" destination="vhH-Eq-Wsu" id="ASo-Pe-jaY"/>
@@ -693,7 +694,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="750" height="237"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1440"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1200"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ" userLabel="Main View">
                 <rect key="frame" x="0.0" y="0.0" width="750" height="237"/>
                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -788,31 +789,31 @@
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="plf-dS-8Ax" userLabel="Title">
                                                     <rect key="frame" x="18" y="187" width="579" height="30"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="DiagnOSXtic" id="spK-Y3-qfr" userLabel="Title">
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Diagn • OS X • tic" id="spK-Y3-qfr" userLabel="Title">
                                                         <font key="font" metaFont="systemBlack" size="25"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="300" bezeled="NO" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Dfi-Ob-Uew" userLabel="Progress Indicator">
-                                                    <rect key="frame" x="291" y="45" width="32" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                </progressIndicator>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6o-8N-5Fg" userLabel="Label">
-                                                    <rect key="frame" x="18" y="20" width="579" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Loading..." id="fKq-QY-0yL">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UpA-uM-gqw" userLabel="Label">
                                                     <rect key="frame" x="18" y="85" width="579" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="System Information" id="h2Z-vc-EXs">
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Loading..." id="h2Z-vc-EXs" userLabel="Label">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="200" bezeled="NO" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Dfi-Ob-Uew" userLabel="Progress Indicator">
+                                                    <rect key="frame" x="291" y="45" width="32" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                </progressIndicator>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6o-8N-5Fg" userLabel="Sub Label">
+                                                    <rect key="frame" x="18" y="20" width="579" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Loading..." id="fKq-QY-0yL" userLabel="Sub Label">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
