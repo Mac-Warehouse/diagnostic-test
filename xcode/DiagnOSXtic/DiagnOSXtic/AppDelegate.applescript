@@ -28,12 +28,12 @@ script AppDelegate
     property tabView : missing value
     property tabButtonBox1 : missing value
     property tabButtonBox2 : missing value
-    property tabButtonBox3 : missing value
     
     property initialLabel : missing value
     property initialSubLabel : missing value
     property initialProgressIndicator : missing value
     
+    property productListView : missing value
     property productListLabel : missing value
     property productListProgressIndicator : missing value
     property productListButton : missing value
@@ -55,7 +55,7 @@ script AppDelegate
     
 	on applicationWillFinishLaunching_(aNotification)
         activate current application
-        tabButtonsSetup_()
+        tabviewButtonsSetup_()
         initialize_()
         
 	end applicationWillFinishLaunching_
@@ -118,12 +118,12 @@ script AppDelegate
     
     ----------------------------------------------------------------------------------------------------
     
-    --                                  -- -- Custom Tab View -- --                                   --
+    --                                  -- -- Custom Views -- --                                      --
     
     --- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ -- ▼▼ ---
     
-    on tabButtonsSetup_()
-        set tabButtonsBoxes to {tabButtonBox1, tabButtonBox2, tabButtonBox3}
+    on tabviewButtonsSetup_()
+        set tabButtonsBoxes to {tabButtonBox1, tabButtonBox2}
         
     end tabviewButtonsSetup_
     
@@ -155,6 +155,17 @@ script AppDelegate
         closeTabsButton's setTransparent_(0)
         
     end tabItemSelected_
+    
+    on productListViewButtonSelected_(sender)
+        if (sender's state) as text is "1" then
+            productListView's setHidden_(false)
+        
+        else
+            productListView's setHidden_(true)
+            
+        end if
+        
+    end productListViewButtonSelected_
     
     ----------------------------------------------------------------------------------------------------
     
@@ -327,10 +338,3 @@ end script
 --                                  -- -- Script -- --                                        --
 
 ----------------------------------------------------------------------------------------------------
-
-(*
- 
- button0_Box's setTransparent_(1)
- log button0_Box's isTransparent
- 
- *)

@@ -7,24 +7,25 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
             <connections>
-                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="4DQ-VA-o4m"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
-                <outlet property="closeTabsButton" destination="KI3-gh-bdA" id="asb-Ei-eyJ"/>
+                <outlet property="closeTabsButton" destination="6L5-1O-rcc" id="vsG-rf-dkL"/>
                 <outlet property="initialLabel" destination="h2Z-vc-EXs" id="8Na-b7-3gt"/>
                 <outlet property="initialProgressIndicator" destination="Dfi-Ob-Uew" id="4Py-Po-j2b"/>
                 <outlet property="initialSubLabel" destination="fKq-QY-0yL" id="gd6-lZ-H7E"/>
-                <outlet property="productListButton" destination="0np-8P-q49" id="tir-Ga-3rZ"/>
-                <outlet property="productListLabel" destination="aYs-Am-6bx" id="ygg-jJ-JXc"/>
-                <outlet property="productListProgressIndicator" destination="vhH-Eq-Wsu" id="ASo-Pe-jaY"/>
-                <outlet property="tabButtonBox1" destination="tMN-qd-xaR" id="4rJ-GN-j89"/>
-                <outlet property="tabButtonBox2" destination="8Pl-6k-HfF" id="uYR-LY-3vg"/>
-                <outlet property="tabButtonBox3" destination="rab-KB-Rbo" id="wGQ-KV-4bp"/>
+                <outlet property="productListButton" destination="QEe-Cy-DdI" id="0bs-Xt-zwh"/>
+                <outlet property="productListLabel" destination="dQV-mQ-YrU" id="F2p-sg-x4e"/>
+                <outlet property="productListProgressIndicator" destination="m6V-6l-JGe" id="iBo-Cs-u96"/>
+                <outlet property="productListView" destination="ANa-I8-1P6" id="g59-PD-7dE"/>
+                <outlet property="tabButtonBox1" destination="8Pl-6k-HfF" id="QJd-ez-Hfs"/>
+                <outlet property="tabButtonBox2" destination="rab-KB-Rbo" id="C1P-R9-dPQ"/>
                 <outlet property="tabView" destination="37b-oV-R9s" id="6gm-d7-mzN"/>
+                <outlet property="theWindow" destination="QvC-M9-y7g" id="dDv-LZ-UcS"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -691,10 +692,10 @@
             <point key="canvasLocation" x="125" y="-471"/>
         </menu>
         <window title="DiagnOSXtic" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="750" height="237"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1200"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1440"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ" userLabel="Main View">
                 <rect key="frame" x="0.0" y="0.0" width="750" height="237"/>
                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -703,41 +704,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="750" height="237"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
-                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="I1a-LM-xmT" userLabel="Background">
-                                <rect key="frame" x="0.0" y="0.0" width="750" height="237"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KI3-gh-bdA" userLabel="Close Button">
+                                <rect key="frame" x="359" y="103" width="32" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <view key="contentView" ambiguous="YES" id="xyW-ha-0Zv">
-                                    <rect key="frame" x="0.0" y="0.0" width="750" height="237"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <color key="fillColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </box>
-                            <box horizontalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Dup-dG-GTz">
-                                <rect key="frame" x="132" y="0.0" width="5" height="237"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </box>
-                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" title="Box" transparent="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tMN-qd-xaR" userLabel="Product List Box">
-                                <rect key="frame" x="0.0" y="177" width="135" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <view key="contentView" ambiguous="YES" id="uAq-oE-C9b">
-                                    <rect key="frame" x="0.0" y="0.0" width="135" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
-                            </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="s1R-de-RWA" userLabel="Product List Button">
-                                <rect key="frame" x="0.0" y="177" width="135" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="smallSquare" title="Product List" bezelStyle="smallSquare" image="NSAddTemplate" alignment="center" lineBreakMode="truncatingTail" state="on" tag="1" imageScaling="proportionallyDown" inset="2" id="8Q5-pa-AJ6">
+                                <buttonCell key="cell" type="round" title="X" bezelStyle="circular" alignment="center" continuous="YES" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4qo-D5-IRn">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="tabItemSelected:" target="Voe-Tx-rLC" id="mTv-qA-fL5"/>
+                                    <action selector="closeTabs:" target="Voe-Tx-rLC" id="qBn-Tx-uRg"/>
                                 </connections>
                             </button>
+                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="I1a-LM-xmT" userLabel="Background">
+                                <rect key="frame" x="134" y="0.0" width="616" height="237"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" ambiguous="YES" id="xyW-ha-0Zv">
+                                    <rect key="frame" x="0.0" y="0.0" width="616" height="237"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <color key="fillColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </box>
+                            <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RZn-aB-yMo">
+                                <rect key="frame" x="0.0" y="0.0" width="750" height="237"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6L5-1O-rcc" userLabel="Close Button">
+                                        <rect key="frame" x="112" y="214" width="22" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="bevel" bezelStyle="circular" alignment="center" controlSize="mini" continuous="YES" state="on" allowsMixedState="YES" transparent="YES" imageScaling="proportionallyDown" inset="2" id="1OQ-3T-0rw">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="miniSystem"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="closeTabs:" target="Voe-Tx-rLC" id="0oo-8t-RUy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                            <box horizontalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Dup-dG-GTz">
+                                <rect key="frame" x="132" y="0.0" width="5" height="237"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </box>
                             <box fixedFrame="YES" boxType="custom" borderWidth="0.0" title="Box" transparent="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Pl-6k-HfF" userLabel="Labels Box">
-                                <rect key="frame" x="0.0" y="147" width="135" height="30"/>
+                                <rect key="frame" x="0.0" y="177" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" ambiguous="YES" id="Dd3-4m-sy7">
                                     <rect key="frame" x="0.0" y="0.0" width="135" height="30"/>
@@ -745,10 +757,10 @@
                                 </view>
                                 <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="nWx-v0-Ycd" userLabel="Labels Button">
-                                <rect key="frame" x="0.0" y="147" width="135" height="30"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="nWx-v0-Ycd" userLabel="Labels Button">
+                                <rect key="frame" x="0.0" y="177" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="smallSquare" title="Labels" bezelStyle="smallSquare" image="NSAddTemplate" alignment="center" lineBreakMode="truncatingTail" state="on" tag="1" imageScaling="proportionallyDown" inset="2" id="PuE-62-MWY">
+                                <buttonCell key="cell" type="smallSquare" title="Labels" bezelStyle="smallSquare" image="NSAddTemplate" alignment="center" lineBreakMode="truncatingTail" continuous="YES" state="on" tag="1" imageScaling="proportionallyDown" inset="2" id="PuE-62-MWY">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -757,7 +769,7 @@
                                 </connections>
                             </button>
                             <box fixedFrame="YES" boxType="custom" borderWidth="0.0" title="Box" transparent="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rab-KB-Rbo" userLabel="Diagnostics Box">
-                                <rect key="frame" x="0.0" y="117" width="135" height="30"/>
+                                <rect key="frame" x="0.0" y="147" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" ambiguous="YES" id="BG5-Wj-h5Z">
                                     <rect key="frame" x="0.0" y="0.0" width="135" height="30"/>
@@ -765,10 +777,10 @@
                                 </view>
                                 <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="k3u-XE-xOi" userLabel="Diagnostics Button">
-                                <rect key="frame" x="0.0" y="117" width="135" height="30"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="k3u-XE-xOi" userLabel="Diagnostics Button">
+                                <rect key="frame" x="0.0" y="147" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="smallSquare" title="Diagnostics" bezelStyle="smallSquare" image="NSAddTemplate" alignment="center" lineBreakMode="truncatingTail" state="on" tag="1" imageScaling="proportionallyDown" inset="2" id="AUe-39-kq6">
+                                <buttonCell key="cell" type="smallSquare" title="Diagnostics" bezelStyle="smallSquare" image="NSAddTemplate" alignment="center" lineBreakMode="truncatingTail" continuous="YES" state="on" tag="1" imageScaling="proportionallyDown" inset="2" id="AUe-39-kq6">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -782,7 +794,7 @@
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="View" identifier="" id="itn-hY-X1Y" userLabel="Start Window">
-                                        <view key="view" ambiguous="YES" id="qYG-rc-gk8">
+                                        <view key="view" id="qYG-rc-gk8">
                                             <rect key="frame" x="0.0" y="0.0" width="615" height="237"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -820,62 +832,8 @@
                                             </subviews>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="View" identifier="" id="83s-4d-roV" userLabel="Product List">
-                                        <view key="view" id="7si-Qs-HBl">
-                                            <rect key="frame" x="0.0" y="0.0" width="615" height="237"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <subviews>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ewm-KW-Lab" userLabel="Title">
-                                                    <rect key="frame" x="18" y="193" width="579" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Product List" id="XYB-bT-q4T" userLabel="Title">
-                                                        <font key="font" metaFont="systemHeavy" size="20"/>
-                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                                <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="t4S-2p-TY3">
-                                                    <rect key="frame" x="20" y="182" width="575" height="5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                </box>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7NX-hk-Wft" userLabel="Subtitle">
-                                                    <rect key="frame" x="18" y="142" width="579" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Last modification date of product list:" id="Kde-P9-ctE" userLabel="Subtitle">
-                                                        <font key="font" metaFont="systemBold" size="15"/>
-                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mwd-v0-HGv" userLabel="Label">
-                                                    <rect key="frame" x="18" y="117" width="579" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Loading..." id="aYs-Am-6bx" userLabel="Label">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0np-8P-q49" userLabel="Button">
-                                                    <rect key="frame" x="265" y="51" width="85" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qgU-ZS-Zft" userLabel="Button">
-                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                    <connections>
-                                                        <action selector="updateProductList:" target="Voe-Tx-rLC" id="9ew-Uz-8TQ"/>
-                                                    </connections>
-                                                </button>
-                                                <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="vhH-Eq-Wsu" userLabel="Progress Indicator">
-                                                    <rect key="frame" x="20" y="19" width="575" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                </progressIndicator>
-                                            </subviews>
-                                        </view>
-                                    </tabViewItem>
                                     <tabViewItem label="View" identifier="" id="cpG-Xh-dYI" userLabel="Labels">
-                                        <view key="view" id="vzP-iv-lRy">
+                                        <view key="view" ambiguous="YES" id="vzP-iv-lRy">
                                             <rect key="frame" x="0.0" y="0.0" width="615" height="237"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -892,6 +850,77 @@
                                                     <rect key="frame" x="20" y="182" width="575" height="5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 </box>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w71-Fi-Udr" userLabel="Label">
+                                                    <rect key="frame" x="194" y="22" width="367" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="left" title="Loading..." id="dQV-mQ-YrU" userLabel="Label">
+                                                        <dateFormatter key="formatter" dateStyle="medium" timeStyle="short" id="LyV-NO-5l9"/>
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g3n-pv-ERx">
+                                                    <rect key="frame" x="53" y="22" width="137" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Product List Updated:" id="e5K-RO-vm2">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <customView hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ANa-I8-1P6">
+                                                    <rect key="frame" x="55" y="20" width="504" height="105"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <subviews>
+                                                        <box fixedFrame="YES" boxType="custom" cornerRadius="5" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="UnG-CX-FVV" userLabel="Background">
+                                                            <rect key="frame" x="0.0" y="0.0" width="504" height="105"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <view key="contentView" ambiguous="YES" id="Tdj-Zq-nnP">
+                                                                <rect key="frame" x="1" y="1" width="502" height="103"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            </view>
+                                                            <color key="borderColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="fillColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </box>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ug7-NS-V47" userLabel="Label">
+                                                            <rect key="frame" x="18" y="73" width="468" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <textFieldCell key="cell" alignment="center" title="Loading..." id="3yl-Oy-ikH" userLabel="Label">
+                                                                <dateFormatter key="formatter" dateStyle="medium" timeStyle="short" id="kBZ-DY-3WM"/>
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QEe-Cy-DdI" userLabel="Button">
+                                                            <rect key="frame" x="210" y="13" width="85" height="32"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" continuous="YES" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="L2m-qi-ga3" userLabel="Button">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="updateProductList:" target="Voe-Tx-rLC" id="y1E-Sn-Mde"/>
+                                                            </connections>
+                                                        </button>
+                                                        <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="m6V-6l-JGe" userLabel="Progress Indicator">
+                                                            <rect key="frame" x="67" y="46" width="371" height="20"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        </progressIndicator>
+                                                    </subviews>
+                                                </customView>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gAW-cl-MVl">
+                                                    <rect key="frame" x="20" y="20" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="bevel" title="►" alternateTitle="▲" bezelStyle="circular" alignment="center" imageScaling="proportionallyDown" inset="2" id="7jz-Hw-iST">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="cellTitle"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="productListViewButtonSelected:" target="Voe-Tx-rLC" id="qf2-V5-qCf"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                     </tabViewItem>
@@ -918,17 +947,6 @@
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KI3-gh-bdA" userLabel="Close Button">
-                                <rect key="frame" x="145" y="202" width="30" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" title="X" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" transparent="YES" imageScaling="proportionallyDown" inset="2" id="4qo-D5-IRn">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="closeTabs:" target="Voe-Tx-rLC" id="qBn-Tx-uRg"/>
-                                </connections>
-                            </button>
                         </subviews>
                     </customView>
                 </subviews>
