@@ -14,12 +14,14 @@ script AppDelegate
 	property theWindow : missing value
     property progressBar : missing value
     property progressLabel : missing value
+    property progressSubLabel : missing value
     
     -- Global variables
-    global isPaused
+    global currentProgress
 	
 	on applicationWillFinishLaunching_(aNotification)
 		-- initialize application before any windows are opened
+        activate
         
 	end applicationWillFinishLaunching_
     
@@ -45,11 +47,11 @@ script AppDelegate
             
         end if
         
-        set response to (display dialog "Error: " & errorNumber & return & return & errorMessage & return & return & "Details: " & return & errorDetails buttons buttonsList default button item -1 of buttonsList)
+        set response to (display dialog "Error: " & errorNumber & return & return & errorMessage & return & return & "Details: " & return & errorDetails buttons buttonsList default button item -1 of buttonsList giving up after 259200)
         
         if button returned of response is "Quit" then
-            applicationShouldTerminate_("Self")
-            Quit
+            applicationShouldTerminate_(current application)
+            quit
             
         end if
         
@@ -60,7 +62,7 @@ script AppDelegate
         progressBar's setIndeterminate_(true)
         progressBar's startAnimation_(true)
         
-        repeat 2 times
+        repeat 1 times
         progressLabel's setTitle_("Loading.")
         delay 0.13
         
@@ -72,18 +74,23 @@ script AppDelegate
         
         end repeat
         
-        error_("MainApp001", "Issue with product list.", "CURL ERROR BLAH", false)
-        
         delay 1
-        progressLabel's setTitle_("TEST")
+        progressLabel's setTitle_("")
         progressBar's setIndeterminate_(false)
         
-        -- starts main handle
+        -- gets all info and starts main app
+        loadInfo_()
+        
+        progressLabel's setTitle_("")
+        progressBar's setIndeterminate_(true)
+        progressBar's startAnimation_(true)
+        
         runMainApp_()
         
     end init_
     
-    on runMainApp_()
+    on loadInfo_()
+        initGlobals_()
         getSystemInfo_()
         checkNetwork_()
         checkUpdates_()
@@ -91,43 +98,85 @@ script AppDelegate
         update_()
         getSpecs_()
         combineSpecs_()
-        runTests_()
-        installOS_()
-        printLabel_()
         
-    end runMainApp_
+    end loadInfo_
+    
+    on initGlobals_()
+        set {currentProgress} to {0}
+        
+        progressLabel's setTitle_("Setting up global variables.")
+        repeat 100 times
+            set currentProgress to currentProgress + 1
+            progressBar's setDoubleValue_(currentProgress)
+            delay 0.001
+            
+        end repeat
+        
+    end initGlobals_
     
     on getSystemInfo_()
-        
-        
+        progressLabel's setTitle_("Getting system info.")
+        repeat 100 times
+            set currentProgress to currentProgress + 1
+            progressBar's setDoubleValue_(currentProgress)
+            delay 0.001
+            
+        end repeat
         
     end getSystemInfo_
     
     on checkNetwork_()
-        
-        
+        progressLabel's setTitle_("Checking for network connection")
+        repeat 100 times
+            set currentProgress to currentProgress + 1
+            progressBar's setDoubleValue_(currentProgress)
+            delay 0.001
+            
+        end repeat
         
     end checkNetwork_
     
     on checkUpdates_()
-        
-        
+        progressLabel's setTitle_("Checking for updates")
+        repeat 100 times
+            set currentProgress to currentProgress + 1
+            progressBar's setDoubleValue_(currentProgress)
+            delay 0.001
+            
+        end repeat
         
     end checkUpdates_
     
     on promptUpdate_()
-        
-        
+        progressLabel's setTitle_("prompting for update")
+        repeat 50 times
+            set currentProgress to currentProgress + 1
+            progressBar's setDoubleValue_(currentProgress)
+            delay 0.001
+            
+        end repeat
         
     end promptUpdate_
     
     on update_()
-        
-        
+        progressLabel's setTitle_("Updating.")
+        repeat 50 times
+            set currentProgress to currentProgress + 1
+            progressBar's setDoubleValue_(currentProgress)
+            delay 0.001
+            
+        end repeat
         
     end update_
     
     on getSpecs_()
+        progressLabel's setTitle_("Loading specs.")
+        repeat 100 times
+            set currentProgress to currentProgress + 1
+            progressBar's setDoubleValue_(currentProgress)
+            delay 0.001
+            
+        end repeat
         
         set configCode to ""
         
@@ -135,9 +184,39 @@ script AppDelegate
     
     on combineSpecs_()
         
-        
+        progressLabel's setTitle_("Formatting specs")
+        repeat 100 times
+            set currentProgress to currentProgress + 1
+            progressBar's setDoubleValue_(currentProgress)
+            delay 0.001
+            
+        end repeat
         
     end combineSpecs_
+    
+    on runMainApp_()
+        repeat
+            set response to promptChoice_()
+            if response is false then exit repeat
+            
+            (*runTests_()
+            installOS_()
+            printLabel_()*)
+        
+        end repeat
+        
+        applicationShouldTerminate_(current application)
+        quit
+        
+    end runMainApp_
+    
+    on promptChoice_()
+        set theList to {"Processing", "Stress Test", "Label", "Install macOS", "Customer Processing"}
+        set theMessage to "Please choose an option below."
+        
+        return choose from list theList with prompt theMessage default items item 1 of theList with title "Diagnostic Test"
+        
+    end promptChoice_
     
     on runTests_()
         
