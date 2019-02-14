@@ -12,6 +12,7 @@
 		EC6966A222132E960046A8A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC6966A122132E960046A8A1 /* Assets.xcassets */; };
 		EC6966A522132E960046A8A1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC6966A322132E960046A8A1 /* MainMenu.xib */; };
 		EC6966A822132E960046A8A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6966A722132E960046A8A1 /* main.m */; };
+		ECC164392214C65500118E27 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ECC164382214C65500118E27 /* Config.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		EC6966A422132E960046A8A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		EC6966A622132E960046A8A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC6966A722132E960046A8A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ECC164382214C65500118E27 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		EC69669E22132E950046A8A1 /* Diagnostic Test */ = {
 			isa = PBXGroup;
 			children = (
+				ECC164382214C65500118E27 /* Config.xcconfig */,
 				EC69669F22132E950046A8A1 /* AppDelegate.applescript */,
 				EC6966A122132E960046A8A1 /* Assets.xcassets */,
 				EC6966A322132E960046A8A1 /* MainMenu.xib */,
@@ -131,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC6966A222132E960046A8A1 /* Assets.xcassets in Resources */,
+				ECC164392214C65500118E27 /* Config.xcconfig in Resources */,
 				EC6966A522132E960046A8A1 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
