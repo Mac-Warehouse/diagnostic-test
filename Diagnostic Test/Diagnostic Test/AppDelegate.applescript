@@ -12,6 +12,7 @@ use scripting additions
 script AppDelegate
 	property parent : class "NSObject"
     property NSApp : class "NSApplication"
+    property FileManager : class "NSFileManager"
 	
 	-- IBOutlets
 	property theWindow : missing value
@@ -31,10 +32,10 @@ script AppDelegate
     global myTitle
     global homeFolder
     global configFile
+    global defaultFileManager
 	
 	on applicationWillFinishLaunching_(aNotification)
 		-- initialize application before any windows are opened
-        initPreferences_()
         
 	end applicationWillFinishLaunching_
     
@@ -70,66 +71,28 @@ script AppDelegate
         
     end error_
     
-    on initPreferences_()
-        set configFile to path to resource "Config.xcconfig"
-        set configContents to paragraphs of (do shell script "cat " & quoted form of (POSIX path of configFile))
-        
-        set oldDelims to AppleScript's text item delimiters
-        set AppleScript's text item delimiters to " = "
-        
-        repeat with currentLine in configContents
-            try
-                set commentCheck to text 1 through 2 of currentLine
-                if commentCheck is not "//" then
-                    set currentConfigName to text item 1 of currentLine
-                    set currentConfigValue to text item 2 of currentLine
-                    
-                    if currentConfigName is "AUTO_STARTUP" then
-                        if currentConfigValue is "true" then prefAutoStartupBox's setState_(1)
-                        
-                    else if currentConfigName is "DISPLAY_QR" then
-                        if currentConfigValue is "true" then prefDisplayQrCodeBox's setState_(1)
-                    
-                    else if currentConfigName is "PRINT_FOR_IOS_DEVICES" then
-                        if currentConfigValue is "true" then prefPrintLabelsBox's selectItemWithTitle_("iOS Devices")
-                    
-                    end if
-                    
-                end if
-                
-            end try
-            
-        end repeat
-        
-        set AppleScript's text item delimiters to oldDelims
-        
-    end initPreferences_
-    
     on preferencesButtonSelected_(sender)
         set sendersTag to sender's tag as text
         set sendersState to sender's state as text
+        set sendersTitle to sender's title as text
         
-        if sendersState is "0" then
-            set newState to "false"
+        if sendersTag is "0" or sendersTag is "1" then
+            set currentValue to false
+            if sendersState is "1" then set currentValue to true
         
-        else if sendersState is "1" then
-            set newState to "true"
+        end if
+        
+        if sendersTag is "0" then set currentKey to "AUTO_STARTUP"
+        if sendersTag is "1" then set currentKey to "DISPLAY_QR"
+        if sendersTag is "2" then set currentKey to "PRINT_FOR_IOS_DEVICES"
+        
+        if sendersTag is "2" then
+            set currentValue to false
+            if sendersTitle is "iOS Devices" then set currentValue to true
             
         end if
         
-        if sendersTag is "0" then
-            set searchKey to "AUTO_STARTUP"
-            
-        else if sendersTag is "1" then
-            set searchKey to "DISPLAY_QR"
-        
-        else if sendersTag is "2" then
-            set searchKey to "PRINT_FOR_IOS_DEVICES"
-            set newState to sender's title
-            
-        end if
-        
-        display dialog "sed -i '/" & searchKey & "/c\\" & searchKey & " = " & newState & "' " & quoted form of (POSIX path of configFile) as text
+        updateConfigPlist_(currentKey, currentValue)
         
     end preferencesButtonSelected_
     
@@ -177,7 +140,7 @@ script AppDelegate
     end loadInfo_
     
     on initGlobalInfo_()
-        set {currentProgress, tmpItems, currentVersion, myTitle, homeFolder} to {0, missing value, missing value, missing value, missing value}
+        set {currentProgress, tmpItems, currentVersion, myTitle, homeFolder, configFile, defaultFileManager} to {0, missing value, missing value, missing value, missing value, missing value, missing value}
         
         progressLabel's setTitle_("Setting up global variables.")
         
@@ -234,12 +197,26 @@ script AppDelegate
         end repeat
         
         try
-            --progressSubLabel's setTitle_("Loading config file")
-            --set configFile to path to resource "Config.xcconfig"
+            progressSubLabel's setTitle_("Loading file manager")
+            set defaultFileManager to FileManager's defaultManager
             
         end try
         
-        repeat 20 times
+        repeat 10 times
+            set currentProgress to currentProgress + 1
+            progressBar's setDoubleValue_(currentProgress)
+            delay 0.001
+            
+        end repeat
+        
+        try
+            progressSubLabel's setTitle_("Loading preferences")
+            set configFile to path to resource "config.plist"
+            -- load plist file and set boxes in pref window accordingly
+            
+        end try
+        
+        repeat 10 times
             set currentProgress to currentProgress + 1
             progressBar's setDoubleValue_(currentProgress)
             delay 0.001
