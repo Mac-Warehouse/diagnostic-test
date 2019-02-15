@@ -7,6 +7,7 @@
 --
 
 use framework "Foundation"
+use framework "AppKit"
 use scripting additions
 
 script AppDelegate
@@ -71,6 +72,16 @@ script AppDelegate
         
     end error_
     
+    on incrementProgress_(incrementAmount)
+        repeat incrementAmount times
+            set currentProgress to currentProgress + 1
+            progressBar's setDoubleValue_(currentProgress)
+            delay 0.00001
+            
+        end repeat
+        
+    end incrementProgress_
+    
     on preferencesButtonSelected_(sender)
         set sendersTag to sender's tag as text
         set sendersState to sender's state as text
@@ -124,7 +135,7 @@ script AppDelegate
         progressBar's setIndeterminate_(true)
         progressBar's startAnimation_(true)
         
-        --runMainApp_()
+        runMainApp_()
         
     end init_
     
@@ -133,95 +144,64 @@ script AppDelegate
         checkNetwork_()
         checkUpdates_()
         promptUpdate_()
-        update_()
         getSpecs_()
         combineSpecs_()
         
     end loadInfo_
     
     on initGlobalInfo_()
-        set {currentProgress, tmpItems, currentVersion, myTitle, homeFolder, configFile, defaultFileManager} to {0, missing value, missing value, missing value, missing value, missing value, missing value}
+        set {currentProgress, tmpItems, currentVersion, myTitle, configFile, defaultFileManager} to {0, missing value, missing value, missing value, missing value, missing value}
         
-        progressLabel's setTitle_("Setting up global variables.")
-        
-        try
-            progressSubLabel's setTitle_("Loading path to temporary items")
-            set tmpItems to path to temporary items
-            
-        end try
-        
-        repeat 20 times
-            set currentProgress to currentProgress + 1
-            progressBar's setDoubleValue_(currentProgress)
-            delay 0.001
-            
-        end repeat
+        progressLabel's setTitle_("Setting up variables.")
         
         try
-            progressSubLabel's setTitle_("Loading current version")
-            set currentVersion to version of current application
-        
-        end try
-        
-        repeat 20 times
-            set currentProgress to currentProgress + 1
-            progressBar's setDoubleValue_(currentProgress)
-            delay 0.001
-            
-        end repeat
-        
-        try
-            progressSubLabel's setTitle_("Loading title")
-            set myTitle to name of current application
-            
-        end try
-        
-        repeat 20 times
-            set currentProgress to currentProgress + 1
-            progressBar's setDoubleValue_(currentProgress)
-            delay 0.001
-            
-        end repeat
-        
-        try
-            progressSubLabel's setTitle_("Loading home folder")
-            set homeFolder to path to home folder
-            
-        end try
-        
-        repeat 20 times
-            set currentProgress to currentProgress + 1
-            progressBar's setDoubleValue_(currentProgress)
-            delay 0.001
-            
-        end repeat
-        
-        try
-            progressSubLabel's setTitle_("Loading file manager")
+            progressSubLabel's setTitle_("Loading file manager.")
             set defaultFileManager to FileManager's defaultManager
             
         end try
-        
-        repeat 10 times
-            set currentProgress to currentProgress + 1
-            progressBar's setDoubleValue_(currentProgress)
-            delay 0.001
-            
-        end repeat
+        incrementProgress_(15)
         
         try
-            progressSubLabel's setTitle_("Loading preferences")
+            progressSubLabel's setTitle_("Loading config file.")
             set configFile to path to resource "config.plist"
-            -- load plist file and set boxes in pref window accordingly
             
         end try
+        incrementProgress_(15)
         
-        repeat 10 times
-            set currentProgress to currentProgress + 1
-            progressBar's setDoubleValue_(currentProgress)
-            delay 0.001
+        try
+            progressSubLabel's setTitle_("Loading preferences.")
             
-        end repeat
+        
+        end try
+        incrementProgress_(15)
+        
+        try
+            progressSubLabel's setTitle_("Loading path to temporary items.")
+            set tmpItems to defaultFileManager's temporaryDirectory
+            
+        end try
+        incrementProgress_(15)
+        
+        try
+            progressSubLabel's setTitle_("Loading current version.")
+            set currentVersion to version of current application
+        
+        end try
+        incrementProgress_(15)
+        
+        try
+            progressSubLabel's setTitle_("Loading title.")
+            set myTitle to name of current application
+            
+        end try
+        incrementProgress_(15)
+        
+        try
+            progressSubLabel's setTitle_("Loading home folder.")
+            set homeFolder to defaultFileManager's homeDirectoryForCurrentUser
+            
+        end try
+        incrementProgress_(15)
         
         progressLabel's setTitle_("")
         progressSubLabel's setTitle_("")
@@ -230,56 +210,32 @@ script AppDelegate
     
     on checkNetwork_()
         progressLabel's setTitle_("Checking for network connection")
-        repeat 100 times
-            set currentProgress to currentProgress + 1
-            progressBar's setDoubleValue_(currentProgress)
-            delay 0.001
-            
-        end repeat
+        incrementProgress_(100)
         
     end checkNetwork_
     
     on checkUpdates_()
         progressLabel's setTitle_("Checking for updates")
-        repeat 100 times
-            set currentProgress to currentProgress + 1
-            progressBar's setDoubleValue_(currentProgress)
-            delay 0.001
-            
-        end repeat
+        incrementProgress_(100)
         
     end checkUpdates_
     
     on promptUpdate_()
         progressLabel's setTitle_("prompting for update")
-        repeat 50 times
-            set currentProgress to currentProgress + 1
-            progressBar's setDoubleValue_(currentProgress)
-            delay 0.001
-            
-        end repeat
+        incrementProgress_(50)
+        update_()
         
     end promptUpdate_
     
     on update_()
         progressLabel's setTitle_("Updating.")
-        repeat 50 times
-            set currentProgress to currentProgress + 1
-            progressBar's setDoubleValue_(currentProgress)
-            delay 0.001
-            
-        end repeat
+        incrementProgress_(50)
         
     end update_
     
     on getSpecs_()
         progressLabel's setTitle_("Loading specs.")
-        repeat 100 times
-            set currentProgress to currentProgress + 1
-            progressBar's setDoubleValue_(currentProgress)
-            delay 0.001
-            
-        end repeat
+        incrementProgress_(100)
         
         set configCode to ""
         
@@ -288,28 +244,26 @@ script AppDelegate
     on combineSpecs_()
         
         progressLabel's setTitle_("Formatting specs")
-        repeat 100 times
-            set currentProgress to currentProgress + 1
-            progressBar's setDoubleValue_(currentProgress)
-            delay 0.001
-            
-        end repeat
+        incrementProgress_(100)
         
     end combineSpecs_
     
     on runMainApp_()
-        repeat
-            set response to promptChoice_()
-            if response is false then exit repeat
+        
+        theWindow's setFrame_({{-1530, 1282}, {500, 235}})
+        
+        --repeat
+            --set response to promptChoice_()
+            --if response is false then exit repeat
             
             (*runTests_()
             installOS_()
             printLabel_()*)
         
-        end repeat
+        --end repeat
         
-        applicationShouldTerminate_(current application)
-        quit
+        --applicationShouldTerminate_(current application)
+        --quit
         
     end runMainApp_
     
