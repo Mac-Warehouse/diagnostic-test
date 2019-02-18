@@ -82,31 +82,6 @@ script AppDelegate
         
     end incrementProgress_
     
-    on preferencesButtonSelected_(sender)
-        set sendersTag to sender's tag as text
-        set sendersState to sender's state as text
-        set sendersTitle to sender's title as text
-        
-        if sendersTag is "0" or sendersTag is "1" then
-            set currentValue to false
-            if sendersState is "1" then set currentValue to true
-        
-        end if
-        
-        if sendersTag is "0" then set currentKey to "AUTO_STARTUP"
-        if sendersTag is "1" then set currentKey to "DISPLAY_QR"
-        if sendersTag is "2" then set currentKey to "PRINT_FOR_IOS_DEVICES"
-        
-        if sendersTag is "2" then
-            set currentValue to false
-            if sendersTitle is "iOS Devices" then set currentValue to true
-            
-        end if
-        
-        updateConfigPlist_(currentKey, currentValue)
-        
-    end preferencesButtonSelected_
-    
     on init_()
         -- quick loading bar for visual progress
         progressBar's setIndeterminate_(true)
@@ -139,6 +114,49 @@ script AppDelegate
         
     end init_
     
+    on preferencesButtonSelected_(sender)
+        set sendersTag to sender's tag as text
+        set currentValue to sender's state as text
+        set sendersTitle to sender's title as text
+        set currentFile to quoted form of (POSIX path of configFile)
+        
+        if sendersTag is "0" then set currentKey to "AUTO_STARTUP"
+        if sendersTag is "1" then set currentKey to "DISPLAY_QR"
+        if sendersTag is "2" then set currentKey to "PRINT_FOR_IOS_DEVICES"
+        
+        if sendersTag is "2" then
+            set currentValue to "0"
+            if sendersTitle is "iOS Devices" then set currentValue to "1"
+            
+        end if
+        
+        updateConfigPlist_(currentKey, currentValue, currentFile)
+        
+    end preferencesButtonSelected_
+    
+    on updateConfigPlist_(currentKey, currentValue, currentFile)
+        set falseTestList to {"0", "false", false}
+        repeat with currentTest in falseTestList
+                try
+                    if currentValue is currentTest then set currentValue to "NO"
+                    
+                end try
+                
+        end repeat
+        
+        set trueTestList to {"1", "true", true}
+        repeat with currentTest in trueTestList
+            try
+                if currentValue is currentTest then set currentValue to "YES"
+                
+            end try
+            
+        end repeat
+        
+        log "plutil -replace " & currentKey & " -bool " & currentValue & space & currentFile
+        
+    end updateConfigPlist_
+    
     on loadInfo_()
         initGlobalInfo_()
         checkNetwork_()
@@ -170,7 +188,54 @@ script AppDelegate
         
         try
             progressSubLabel's setTitle_("Loading preferences.")
+            set filePath to quoted form of (POSIX path of configFile)
+            set configData to paragraphs of (do shell script "plutil -p " & filePath)
             
+            set {autoStartupValue, displayQrValue, printForIosDevicesValue} to {missing value, missing value, missing value}
+            
+            set oldDelims to AppleScript's text item delimiters
+            set AppleScript's text item delimiters to "=>"
+            
+            repeat with currentLine in configData
+                if currentLine contains "AUTO_STARTUP" then
+                    try
+                        set autoStartupValue to text item 2 of currentLine as text
+                        
+                    end try
+                
+                else if currentLine contains "DISPLAY_QR" then
+                    try
+                        set displayQrValue to text item 2 of currentLine as text
+                        
+                    end try
+                
+                else if currentLine contains "PRINT_FOR_IOS_DEVICES" then
+                    try
+                        set printForIosDevicesValue to text item 2 of currentLine as text
+                        
+                    end try
+                    
+                end if
+                
+            end repeat
+            
+            set preferencesToUpdateList to {{"AUTO_STARTUP", autoStartupValue}, {"DISPLAY_QR", displayQrValue}, {"PRINT_FOR_IOS_DEVICES", printForIosDevicesValue}}
+            
+            repeat with currentPreferenceToUpdate in preferencesToUpdateList
+                set currentKey to item 1 of currentPreferenceToUpdate
+                set currentValue to item 2 of currentPreferenceToUpdate
+                
+                log ""
+                log "currentKey= " & currentKey
+                log "currentValue= " & currentValue
+                log ""
+                
+            end repeat
+            
+            set AppleScript's text item delimiters to oldDelims
+            
+        on error e
+            log e
         
         end try
         incrementProgress_(15)
@@ -250,7 +315,7 @@ script AppDelegate
     
     on runMainApp_()
         
-        theWindow's setFrame_({{-1530, 1282}, {500, 235}})
+        --theWindow's setFrame_({{-1530, 1282}, {500, 235}})
         
         --repeat
             --set response to promptChoice_()
